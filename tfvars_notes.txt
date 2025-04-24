@@ -41,7 +41,6 @@ commands:
 =========
 
 - Passing files separately for DEV and PROD
-
 terraform init -backend-config=dev/backend.tf 
 terraform plan -var-file=dev/dev.tfvars 
 terraform apply -auto-approve -var-file=dev/dev.tfvars
@@ -57,7 +56,18 @@ terraform apply -auto-approve -var-file=prod/prod.tfvars
 by providing following command
 terraform init -reconfigure -backend-config=dev/backend.tf
 
+terraform destroy -auto-approve -var-file=dev/dev.tfvars
+terraform destroy -auto-approve -var-file=prod/prod.tfvars
+
+If you need more environments, we will create separate folder and write backend.tf and environment.tfvars file
+
+QA environment folder or staging environment
+--------------------------------------------
+backend.tf
+qa.tfvars
+
 Disadvantage: 
+=============
 - Here, we are maintaining same codebase for DEV and PROD and
 - just providing DEV and PROD variables separately using .tfvars file
 1.we need full expertise to do this, small mistakes in code will go to production too.
