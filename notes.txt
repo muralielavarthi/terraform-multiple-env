@@ -1,0 +1,6 @@
+multiple environments using terraform
+=====================================
+1. tfvars
+2. terraform workspaces
+3. separate codebase
+- All these have advantages and disadvantages
