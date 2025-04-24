@@ -66,6 +66,8 @@ QA environment folder or staging environment
 backend.tf
 qa.tfvars
 
+infra will be consistent across all environments
+
 Disadvantage: 
 =============
 - Here, we are maintaining same codebase for DEV and PROD and
