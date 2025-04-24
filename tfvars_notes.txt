@@ -1,0 +1,64 @@
+Terraform can be used to create consistent infra across DEV and PROD
+
+multiple environments using terraform
+=====================================
+1. tfvars - used to override default values 
+2. terraform workspaces
+3. separate codebase
+
+Requirments:
+==========
+1. 3 ec2 instances
+2. 3 R53 records
+
+In PROD and DEV
+- use remote state
+- 2 separate S3 buckets for PROD & DEV
+- 2 Separate Dynamo DB tables
+
+R53 records
+-------------
+mysql-prod-emurali.shop
+backend-prod-emurali.shop
+emurali.shop (need to check)
+
+mysql-dev-emurali.shop
+backend-dev-emurali.shop
+emurali.shop  (need to check)
+
+EC2-instances names
+------------------
+expense-dev-mysql
+expense-dev-frontend
+expense-dev-backend
+
+Secuirty groups:
+-----------------
+expense-dev
+expense-prod
+
+commands:
+=========
+
+- Passing files separately for DEV and PROD
+
+terraform init -backend-config=dev/backend.tf 
+terraform plan -var-file=dev/dev.tfvars 
+terraform apply -auto-approve -var-file=dev/dev.tfvars
+
+- this initializes DEV environments (explicitly passing files for DEV)(sinc files are not in root folder, 
+terraform doesn't know about it)
+
+terraform init -reconfigure -backend-config=prod/backend.tf
+terraform plan -var-file=prod/prod.tfvars
+terraform apply -auto-approve -var-file=prod/prod.tfvars
+- Since we are reconfiguring again, need to tell -reconfigure only for init command
+- Now, terraform is pointing to PROD, if i need to do some changes in DEV, then we should ask terraform to reconfigure to DEV
+by providing following command
+terraform init -reconfigure -backend-config=dev/backend.tf
+
+Disadvantage: 
+- Here, we are maintaining same codebase for DEV and PROD and
+- just providing DEV and PROD variables separately using .tfvars file
+1.we need full expertise to do this, small mistakes in code will go to production too.
+2.small projects can implement this.
