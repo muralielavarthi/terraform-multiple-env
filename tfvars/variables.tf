@@ -5,6 +5,7 @@ variable "environment" {
      # since nothing is provided it will check for other options
      # by default it will go for terraform.tfvars
      # since we changed the file name, explicitly we need to provide var file path - terraform plan -var-file=prod/prod.tfvars
+     # if you are not providing anything, it will prompt and ask you this value
 }
 variable "instances" {
     default = ["mysql", "backend", "frontend"]

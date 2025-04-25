@@ -50,7 +50,7 @@ terraform doesn't know about it)
 
 terraform init -reconfigure -backend-config=prod/backend.tf
 terraform plan -var-file=prod/prod.tfvars
-terraform apply -auto-approve -var-file=prod/prod.tfvars
+terraform apply -auto-approve -var-file=prod/prod.tfvars (not provided var file, it prompt and ask you)
 - Since we are reconfiguring again, need to tell -reconfigure only for init command
 - Now, terraform is pointing to PROD, if i need to do some changes in DEV, then we should ask terraform to reconfigure to DEV
 and this will point to DEV environment now. 
