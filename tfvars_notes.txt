@@ -20,11 +20,11 @@ R53 records
 -------------
 mysql-prod-emurali.shop
 backend-prod-emurali.shop
-emurali.shop (need to check)
+emurali.shop (for only production we give public IP)
 
 mysql-dev-emurali.shop
 backend-dev-emurali.shop
-emurali.shop  (need to check)
+frontend-dev-emurali.shop
 
 EC2-instances names
 ------------------
@@ -79,3 +79,8 @@ Disadvantage:
 
 Same variables values across environments we kept in codebase
 differnt variables values across environments we are supplying from .tfvars file.
+
+Cost saving
+==============
+1. In non production environments (DEV, QA), we can turnoff instances during non office hours
+2. Similarly, in PROD we can turnoff Auto scaling during night times where application usage will be low.
