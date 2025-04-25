@@ -66,7 +66,8 @@ QA environment folder or staging environment
 backend.tf
 qa.tfvars
 
-infra will be consistent across all environments
+testing is strong if we have same infra in dev and prod
+goal: infra should be same across all environments
 
 Disadvantage: 
 =============
@@ -74,3 +75,7 @@ Disadvantage:
 - just providing DEV and PROD variables separately using .tfvars file
 1.we need full expertise to do this, small mistakes in code will go to production too.
 2.small projects can implement this.
+
+
+Same variables values across environments we kept in codebase
+differnt variables values across environments we are supplying from .tfvars file.
