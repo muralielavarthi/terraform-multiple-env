@@ -35,7 +35,6 @@ Big banking project: 3
 
 In interview they will ask how do you create multiple environments in terraform ??
 =================================================================================
-
 we had a discussion with client and proposed all available options and Advantage/Disadvantages.
 Since project is cricual client decide to go with below option
 - our client needs clear isolation between environment so we have select different repos for different environments
