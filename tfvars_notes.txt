@@ -53,8 +53,8 @@ terraform plan -var-file=prod/prod.tfvars
 terraform apply -auto-approve -var-file=prod/prod.tfvars
 - Since we are reconfiguring again, need to tell -reconfigure only for init command
 - Now, terraform is pointing to PROD, if i need to do some changes in DEV, then we should ask terraform to reconfigure to DEV
-by providing following command
-terraform init -reconfigure -backend-config=dev/backend.tf
+and this will point to DEV environment now. 
+- terraform init -reconfigure -backend-config=dev/backend.tf
 
 terraform destroy -auto-approve -var-file=dev/dev.tfvars - dev is destroyed
 terraform destroy -auto-approve -var-file=prod/prod.tfvars - again point to prod and destroy it
