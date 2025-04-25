@@ -56,8 +56,8 @@ terraform apply -auto-approve -var-file=prod/prod.tfvars
 by providing following command
 terraform init -reconfigure -backend-config=dev/backend.tf
 
-terraform destroy -auto-approve -var-file=dev/dev.tfvars
-terraform destroy -auto-approve -var-file=prod/prod.tfvars
+terraform destroy -auto-approve -var-file=dev/dev.tfvars - dev is destroyed
+terraform destroy -auto-approve -var-file=prod/prod.tfvars - again point to prod and destroy it
 
 If you need more environments, we will create separate folder and write backend.tf and environment.tfvars file
 
