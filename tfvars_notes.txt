@@ -11,10 +11,9 @@ Requirments:
 1. 3 ec2 instances
 2. 3 R53 records
 
-In PROD and DEV
-- use remote state
-- 2 separate S3 buckets for PROD & DEV
-- 2 Separate Dynamo DB tables
+In PROD and DEV:
+================
+- Different S3 buckets and differnt Dynamo DB for differnt environments
 
 R53 records
 -------------
@@ -79,6 +78,9 @@ Disadvantage:
 
 Same variables values across environments we kept in codebase
 differnt variables values across environments we are supplying from .tfvars file.
+
+variables 
+
 
 Cost saving
 ==============

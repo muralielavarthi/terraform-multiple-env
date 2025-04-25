@@ -23,6 +23,6 @@ variable "common_tags" {
     type = map
     default = {
         Project = "expense"
-        Terraform = "true" #need to check
+        Terraform = "true" # this tells that resource has been created using terraform, when some one checks in console.
     }
 }

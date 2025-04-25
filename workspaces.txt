@@ -1,0 +1,2 @@
+- terraform workspaces we don't use in projects but it is important in interviews
+
