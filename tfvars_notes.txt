@@ -4,7 +4,9 @@ multiple environments using terraform (consistent infra) - 3 ways we can do
 ==========================================================
 1. tfvars - used to override default values 
 2. terraform workspaces
-3. separate codebase
+3. maintain separate code for separate environments
+    terraform-expense-dev
+    terraform-expense-prod
 
 Requirments:
 ==========
@@ -77,7 +79,7 @@ Disadvantage:
 
 
 Same variables values across environments we kept in codebase
-differnt variables values across environments we are supplying from .tfvars file.
+differnt variables values across environments we are supplying from .tfvars file and backend.tf
 
 variables 
 

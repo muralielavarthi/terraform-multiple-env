@@ -1,6 +1,5 @@
 Terraform workspaces, we don't use in projects but it is important in interviews.
 workspace is nothing but environment, we have to create two workspaces since we have two environments
-- Here, only one S3 bucket and one Dynamo DB
 
 > terraform init
 > terraform workspace
@@ -8,5 +7,32 @@ workspace is nothing but environment, we have to create two workspaces since we 
 > terraform workspace new PROD
 > terraform workspace list (lists number of workspaces, default workspace-terraform provided)
 > terraform workspace select dev (switched dev workspace)
+> terraform plan
+> terraform apply
 * - tells which workspace terraform is pointing to
 terraform.workspace - special variable terraform provides, value depends on which workspace terraform is pointing to
+
+- Here, only one S3 bucket and one Dynamo DB
+- but in S3 bucket, env folder will be created it contain different workspaces
+S3 bucket
+    env/   
+    -dev/
+    -prod/
+if we are in DEV workspace, Terraform will point out to dev state file in s3 bucket
+
+1. tfvars - used to override default values 
+2. terraform workspaces
+3. maintain separate code for separate environments
+
+-Disadvantage of 1 & 2 - should be very carefull, same code for prod and dev, any mistakes in dev causes confusion in prod
+-Disadvantage of 1 & 2 - should have full expertise, too much testing is required.
+-Advantage 1 & 2 - code reuse
+-Disadvantage of 3, multiple repos to manage
+-Advantage of 3, clear isolation between environments, no confusion
+
+Small projects (startup): 1 & 2
+Big banking project: 3
+
+In interview they will ask how do you create multiple environments in terraform ??
+
+- our client needs clear isolation between environment so we have select different repos for different environments
