@@ -1,7 +1,7 @@
 Terraform can be used to create consistent infra across DEV and PROD
 
-multiple environments using terraform
-=====================================
+multiple environments using terraform (consistent infra) - 3 ways we can do
+==========================================================
 1. tfvars - used to override default values 
 2. terraform workspaces
 3. separate codebase

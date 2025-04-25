@@ -1,11 +1,11 @@
 resource "aws_instance" "this" {
-  ami                    = "ami-09c813fb71547fc4f" # This is our devops-practice AMI ID
+  ami                    = "ami-09c813fb71547fc4f" 
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   instance_type          = lookup(var.instance_type, terraform.workspace)
   tags = {
     Name    = "terraform-demo-${terraform.workspace}"
     Purpose = "terraform-practice"
-  }
+  } 
 }
 
 resource "aws_security_group" "allow_tls" {
@@ -30,3 +30,8 @@ resource "aws_security_group" "allow_tls" {
     Name = "allow_tls"
   }
 }
+
+# lookup function
+# lookup(map,key)
+# lookup(var.instance_type, terraform.workspace)
+# lookup({map},dev) - t3.micro  

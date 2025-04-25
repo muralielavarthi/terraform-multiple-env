@@ -1,0 +1,12 @@
+Terraform workspaces, we don't use in projects but it is important in interviews.
+workspace is nothing but environment, we have to create two workspaces since we have two environments
+- Here, only one S3 bucket and one Dynamo DB
+
+> terraform init
+> terraform workspace
+> terraform workspace new DEV (to create workspace)
+> terraform workspace new PROD
+> terraform workspace list (lists number of workspaces, default workspace-terraform provided)
+> terraform workspace select dev (switched dev workspace)
+* - tells which workspace terraform is pointing to
+terraform.workspace - special variable terraform provides, value depends on which workspace terraform is pointing to
